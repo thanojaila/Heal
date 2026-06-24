@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HEAL — Harris County Emergency Resource Navigation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #2F8F83;
+      --teal-dark: #1e6e64;
+      --teal-light: #e6f4f2;
+      --white: #ffffff;
+      --text: #1a2e2c;
+      --muted: #5a7572;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--teal-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(47, 143, 131, 0.15);
+      padding: 48px 40px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      background: var(--teal);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .logo svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--teal-dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .apps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .app-btn {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 24px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      text-align: left;
+    }
+
+    .app-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(47, 143, 131, 0.18);
+      border-color: var(--teal);
+    }
+
+    .app-btn.resident {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .app-btn.staff {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-color: #c5e2de;
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .resident .app-icon { background: rgba(255,255,255,0.2); }
+    .staff .app-icon { background: var(--teal); }
+
+    .app-icon svg { width: 26px; height: 26px; }
+
+    .app-info { flex: 1; }
+
+    .app-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .app-desc {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    .arrow {
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+      h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6L6 16v18h10V24h8v10h10V16L20 6z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h1>HEAL</h1>
+    <p class="subtitle">AI-powered emergency resource navigation for Harris County residents and Multi-Service Center staff.</p>
+
+    <div class="apps">
+
+      <a href="resident.html" class="app-btn resident">
+        <div class="app-icon">
+          <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="13" cy="8" r="4" stroke="#fff" stroke-width="2.2"/>
+            <path d="M5 22c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="app-info">
+          <div class="app-name">Resident Portal</div>
+          <div class="app-desc">Find food, shelter, health & emergency services near you</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="staff.html" class="app-btn staff">
+        <div class="app-icon">
+          <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="5" width="18" height="16" rx="3" stroke="#fff" stroke-width="2.2"/>
+            <path d="M9 11h8M9 15h5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="app-info">
+          <div class="app-name">Staff Dashboard</div>
+          <div class="app-desc">MSC intake tools, case routing & resource management</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+
+    <p class="footer">Harris County · Houston Health Department · SHERP 2026</p>
+
+  </div>
+
+</body>
+</html>
